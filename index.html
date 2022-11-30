@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="assets/bootstrap-5.2.3-dist/css/bootstrap.min.css">
+    <script src="assets/bootstrap-5.2.3-dist/js/bootstrap.min.js"></script>
+    <script src="assets/js/produtos.json"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Propz</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md mt-4">
+                    <div>
+                        <h1 class="text-center text-uppercase fw-bold">Beleza</h1>
+                        <img src="assets/images/propz.png" alt="#" class="w-50 d-block mx-auto" id="logo-top">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="d-lg-none d-flex">
+        <div class="container-flex">
+            <div class="row-flex">
+                <div class="col-lg">
+                    <img src="assets/images/stripes.png" alt="" class="w-100">
+                </div>
+            </div>
+        </div>
+    </section>
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-md my-5">
+                    <p class="fw-bold text-center">As lojas Propz agora possuem um espaço beleza onde você encontra tudo para montar looks únicos Venha Conhecer!</p>
+                </div>
+            </div>
+        </div>
+    </article>
+    <section id="bg-propz">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg">
+                    <div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+
+                          
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md d-flex justify-content-center">
+                    <div class="text-center w-50 border-shops">
+                        <p id="line" class="pb-3">Lojas Propz</p>
+                        <span > </span>
+                        <ul>
+                            <a href="#">
+                            <li>Belo Horizonte</li></a>
+                            <a href="#">
+                            <li>Campinas</li></a>
+                            <a href="#">
+                            <li>São Paulo</li></a>
+                            <a href="#">
+                            <li>Rio de Janeiro</li></a>
+                        </ul>
+                    </div>
+                </div>
+                <div class="w-100 d-none d-md-block"></div>
+                <div class="col-sm d-flex justify-content-center my-3">
+                    <img src="assets/images/propz.png" alt="Logo Propz" class="w-25">
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg">
+                    <div>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi praesentium repellat, consequuntur saepe laboriosam dolores exercitationem sit repudiandae ipsum, mollitia id! Perferendis, maiores rem unde tenetur saepe omnis sequi iste.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<script>
+    produtos =  [{"descricao": "Good Girl DOT Drama EDP","marca": "Carolina Herrera","quantidade": "80 ML","parcelas": [{"quantidade_parcelas": 10,"valor_inteiro": 49,"valor_decimal": 99}],"valor": "499,00","bandeiras": [{"img": "assets/images/visa.png"}],"imagem": "assets/images/product.png"},{"descricao": "Mantercorp Gel","marca": "Carolina Herrera","quantidade": "100 ML","parcelas": [{"quantidade_parcelas": 10,"valor_inteiro": 11,"valor_decimal": 99}],"valor": "109,99","bandeiras": [{"img": "assets/images/master-card.png"}],"imagem": "assets/images/product-2.png"},{"descricao": "Mantercorp Gel Absolut","marca": "Carolina Herrera","quantidade": "200 ML","parcelas": [{"quantidade_parcelas": 3,"valor_inteiro": 149,"valor_decimal": 99}],"valor": "300,00","bandeiras": [{"img": "assets/images/visa.png"},{"img": "assets/images/master-card.png"}],"imagem": "assets/images/product-2.png"}]
+    
+    let count = 0;
+    for(produto of produtos){
+        parte_parcelas = "";
+        if(produto.parcelas != null && produto.parcelas.length > 0){
+            parte_parcelas += "<div>";
+            for(parcela of produto.parcelas){
+                parte_parcelas += `<class="price-product" style="font-size: 1.4em">${parcela.quantidade_parcelas}x R$ ${parcela.valor_inteiro}`;
+                if(parcela.valor_decimal != null){
+                    parte_parcelas += `<sup>,${parcela.valor_decimal}</sup></p>`
+                }else{
+                    parte_parcelas += `<sup>,00</sup></p>`
+                }
+            }
+        }
+        console.log(parte_parcelas)
+        parte_bandeiras = "";
+        if(produto.bandeiras != null && produto.bandeiras.length > 0){
+            for(bandeira of produto.bandeiras){
+                parte_bandeiras += `<img src="${bandeira.img}" alt="Bandeiras" class="w-50">`
+            }
+        }
+        classe_active = "";
+        if(count == 0){
+            classe_active='active'
+        }
+        
+        document.querySelector(".carousel-inner").innerHTML += `
+            <div class="carousel-item ${classe_active}">
+            <a href="#">
+            <img src="${produto.imagem}" class="d-block w-75 mx-auto" alt="..."></a>
+            <div class="px-5 my-5">
+                <div class="d-flex justify-content-between border-bottom">
+                    <p class="text-uppercase fw-bold title-product" id="descricaoProduto">${produto.descricao}<br> ${produto.marca}</p>
+                    <p class="text-uppercase fw-bold title-product">${produto.quantidade}</p>
+                </div>
+                <div class="row row-cols-2 border-bottom">
+                    <div class="col-md-6 d-flex align-items-center mt-2">
+                            ${parte_parcelas}
+                            </div>
+                    </div>
+                    <div class="col-md-6 d-flex align-items-center justify-content-end">
+                        <div>
+                            <div class="d-flex justify-content-end">
+                                ${parte_bandeiras}
+                            </div>
+                            <div>
+                                <p class="price-full">Ou R$ ${produto.valor} à vista</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `
+        count++
+    }
+    
+</script>
+</html>

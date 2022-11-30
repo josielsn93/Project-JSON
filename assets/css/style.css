@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
+
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+h1 {
+    font-size: 4em;
+    background: -webkit-linear-gradient(45deg, #e0992f, #ce6736);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    background-color: orange;
+}
+.price-product {
+    font-size: 1.4em;
+}
+sup {
+    font-size: 12px;
+}
+.title-product {
+    font-size: 12px;
+}
+.price-full {
+    font-size: 12px;
+}
+.border-bottom {
+    border-bottom: var(--bs-border-width) var(--bs-border-style) #000 !important
+}
+#bg-propz {
+    background-image: url(../../assets/images/stripes.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+ul, li {
+    list-style: none;
+    padding-left: 0;
+}
+li {
+    margin-bottom: 0.5em;
+}
+.border-shops {
+    border: 2px solid orange;
+    padding: 2em;
+}
+#line {
+    border-bottom: 1px solid orange;
+    width: 100%;
+}
+footer p {
+    font-size: 12px;
+    text-align: justify;
+}
+a {
+    text-decoration: none;
+    color: black !important;
+}
+
+@media screen and (min-width: 600px) {
+    #logo-top {
+        max-width: 200px;
+    }
+    .carousel-item img {
+        max-width: 50%;
+    }
+}
